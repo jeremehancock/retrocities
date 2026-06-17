@@ -1,0 +1,82 @@
+{
+  "site": {
+    "title": "Jereme Hancock's Homepage",
+    "tagline": "*** I'm just a guy who likes to tinker! ***",
+    "marquee": "★ Welcome to my corner of the web!  Check out my projects below!  Powered by caffeine and curiosity!  ★",
+    "copyright": "© 2026 Michael Jereme Hancock. All rights reserved."
+  },
+
+  "profile": {
+    "name": "Jereme Hancock",
+    "handle": "~jereme",
+    "title": "Software Developer @ Liquid Web",
+    "avatar": "https://jeremehancock.com/images/profile.jpg",
+    "badges": ["Software Developer", "Owner of Design Turtle", "United States"],
+    "bio": [
+      "Howdy, and welcome to my homepage! I'm Jereme — a software developer at Liquid Web who loves the whole process of building a solution and watching it come to life. I've spent years in web development, cloud management, and technical support, with a stop at Rackspace along the way.",
+      "I'm also the owner and developer behind Design Turtle, my web development shop running since 2004. When I'm not at work, I'm usually tinkering on side projects — Plex tools, homelab docs, and the occasional gloriously dumb web app. As I like to say: I'm just a guy who likes to tinker."
+    ]
+  },
+
+  "projects": [
+    {
+      "title": "Posteria",
+      "year": 2024,
+      "description": "A self-hosted Plex media poster management app for organizing and customizing the artwork across your library. My most-starred project!",
+      "tech": ["PHP", "Self-Hosted", "Plex"],
+      "link": "https://github.com/jeremehancock/Posteria",
+      "image": ""
+    },
+    {
+      "title": "CLIX",
+      "year": 2024,
+      "description": "A Plex media player that lives right in your terminal. Browse and play your library without ever leaving the command line.",
+      "tech": ["Shell", "Plex", "CLI"],
+      "link": "https://github.com/jeremehancock/CLIX",
+      "image": ""
+    },
+    {
+      "title": "Glimpse",
+      "year": 2024,
+      "description": "A lightweight Plex media viewer for browsing your collection through a clean, simple web interface.",
+      "tech": ["HTML", "Plex"],
+      "link": "https://github.com/jeremehancock/Glimpse",
+      "image": ""
+    },
+    {
+      "title": "homelab.md",
+      "year": 2024,
+      "description": "Offline documentation for your homelab. Keep all your setup notes and configs handy even when the network is down.",
+      "tech": ["HTML", "Markdown", "Homelab"],
+      "link": "https://github.com/jeremehancock/homelab.md",
+      "image": ""
+    },
+    {
+      "title": "whoami-web",
+      "year": 2024,
+      "description": "A résumé that runs like a terminal — type commands to learn about me. A nerdier take on the classic CV.",
+      "tech": ["JavaScript", "Terminal UI"],
+      "link": "https://github.com/jeremehancock/whoami-web",
+      "image": ""
+    },
+    {
+      "title": "RandomGoat.com",
+      "year": 2023,
+      "description": "Exactly what it sounds like: a website that serves up random goat GIFs. Because the web needed more goats.",
+      "tech": ["PHP", "GIFs", "Goats"],
+      "link": "https://github.com/jeremehancock/RandomGoat.com",
+      "image": ""
+    }
+  ],
+
+  "contact": {
+    "email": "michael@jeremehancock.com",
+    "items": [
+      { "label": "E-Mail",       "value": "michael@jeremehancock.com", "href": "mailto:michael@jeremehancock.com" },
+      { "label": "Website",      "value": "jeremehancock.com",         "href": "https://jeremehancock.com" },
+      { "label": "GitHub",       "value": "@jeremehancock",            "href": "https://github.com/jeremehancock" },
+      { "label": "DumbProjects", "value": "dumbprojects.com",          "href": "https://dumbprojects.com" },
+      { "label": "Blog",         "value": "https://jereme.dev",        "href": "https://jereme.dev" }
+    ]
+  }
+}

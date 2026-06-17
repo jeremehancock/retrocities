@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>~jereme :: Jereme Hancock's Homepage</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%276%27%20fill%3D%27%23000080%27%2F%3E%3Ccircle%20cx%3D%277%27%20cy%3D%276%27%20r%3D%271%27%20fill%3D%27%23ffff00%27%2F%3E%3Ccircle%20cx%3D%2726%27%20cy%3D%277%27%20r%3D%271%27%20fill%3D%27%23ff00ff%27%2F%3E%3Ccircle%20cx%3D%2725%27%20cy%3D%2725%27%20r%3D%271%27%20fill%3D%27%2300ffff%27%2F%3E%3Ccircle%20cx%3D%2716%27%20cy%3D%2716%27%20r%3D%2710%27%20fill%3D%27%23001a4d%27%20stroke%3D%27%2300ffff%27%20stroke-width%3D%271.5%27%2F%3E%3Cellipse%20cx%3D%2716%27%20cy%3D%2716%27%20rx%3D%2710%27%20ry%3D%273.6%27%20fill%3D%27none%27%20stroke%3D%27%2300ff66%27%20stroke-width%3D%271.2%27%2F%3E%3Cellipse%20cx%3D%2716%27%20cy%3D%2716%27%20rx%3D%273.6%27%20ry%3D%2710%27%20fill%3D%27none%27%20stroke%3D%27%2300ff66%27%20stroke-width%3D%271.2%27%2F%3E%3Cline%20x1%3D%276%27%20y1%3D%2716%27%20x2%3D%2726%27%20y2%3D%2716%27%20stroke%3D%27%2300ff66%27%20stroke-width%3D%271.2%27%2F%3E%3Cline%20x1%3D%2716%27%20y1%3D%276%27%20x2%3D%2716%27%20y2%3D%2726%27%20stroke%3D%27%2300ff66%27%20stroke-width%3D%271.2%27%2F%3E%3C%2Fsvg%3E">
+<style>
+  /* ============================================================
+     GEOCITIES-STYLE PORTFOLIO  -  single file, vanilla JS
+     All CONTENT lives in data/data.json (loaded at runtime).
+     All LOOK lives here. Nothing here needs editing to add data.
+     ============================================================ */
+
+  :root {
+    --neon-pink:   #ff00ff;
+    --neon-cyan:   #00ffff;
+    --neon-lime:   #00ff00;
+    --neon-yellow: #ffff00;
+    --hot:         #ff3399;
+    --link:        #00ddff;
+    --link-vis:    #cc66ff;
+    --panel:       #c0c0c0;   /* win95 gray */
+    --panel-dark:  #808080;
+    --panel-light: #ffffff;
+    --ink:         #000080;   /* classic navy */
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive, sans-serif;
+    color: #ffffff;
+    /* tiled "starfield" background, recreated with gradients so no images needed */
+    background-color: #000033;
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+      radial-gradient(1px 1px at 80px 70px, #ffd, transparent),
+      radial-gradient(2px 2px at 130px 40px, #aef, transparent),
+      radial-gradient(1px 1px at 160px 120px, #fff, transparent),
+      radial-gradient(1px 1px at 50px 160px, #fdd, transparent);
+    background-size: 200px 200px;
+    text-align: center;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  a { color: var(--link); }
+  a:visited { color: var(--link-vis); }
+  a:hover { color: var(--neon-yellow); }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 8px;
+  }
+
+  /* ---- beveled win95 panel ---- */
+  .panel {
+    background: var(--panel);
+    color: #000;
+    border: 3px solid;
+    border-color: var(--panel-light) var(--panel-dark) var(--panel-dark) var(--panel-light);
+    padding: 14px;
+    margin: 14px 0;
+    text-align: left;
+  }
+  .panel h2 {
+    margin: -14px -14px 12px -14px;
+    padding: 6px 12px;
+    background: var(--ink);
+    color: var(--neon-yellow);
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #000;
+  }
+
+  /* ---- rainbow horizontal rule ---- */
+  .rainbow-hr {
+    height: 6px;
+    border: 0;
+    margin: 10px 0;
+    background: linear-gradient(90deg,
+      #ff0000,#ff9900,#ffff00,#00ff00,#00ffff,#0066ff,#cc00ff,#ff0000);
+    background-size: 200% 100%;
+    animation: slide 4s linear infinite;
+  }
+  @keyframes slide { to { background-position: 200% 0; } }
+
+  /* ---- blink + glow ---- */
+  .blink { animation: blink 1s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+
+  .glow {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: #fff;
+    text-shadow:
+      0 0 4px #fff, 0 0 8px var(--neon-pink),
+      0 0 16px var(--neon-pink), 0 0 24px var(--neon-cyan);
+    animation: hue 6s linear infinite;
+  }
+  @keyframes hue { to { filter: hue-rotate(360deg); } }
+
+  /* ---- top banner ---- */
+  .titlebar {
+    font-family: "Times New Roman", Times, serif;
+    font-size: clamp(1.6rem, 7vw, 3rem);
+    margin: 10px 0 2px;
+  }
+  .subtitle { color: var(--neon-lime); font-size: clamp(.8rem, 3.5vw, 1.1rem); }
+
+  marquee { padding: 4px 0; }
+  .marquee-bar {
+    background: #000;
+    border: 2px ridge var(--neon-cyan);
+    color: var(--neon-yellow);
+    font-weight: bold;
+    margin: 8px 0;
+    font-size: clamp(.8rem, 3.2vw, 1.05rem);
+  }
+
+  /* ---- nav ---- */
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  nav a {
+    flex: 1 1 auto;
+    min-width: 96px;
+    text-decoration: none;
+    background: var(--panel);
+    color: #000080;
+    font-weight: bold;
+    padding: 6px 8px;
+    border: 3px solid;
+    border-color: var(--panel-light) var(--panel-dark) var(--panel-dark) var(--panel-light);
+  }
+  nav a:hover { color: #000080; background: var(--neon-yellow); }
+  nav a:active { border-color: var(--panel-dark) var(--panel-light) var(--panel-light) var(--panel-dark); }
+
+  /* ---- profile / hero ---- */
+  .hero { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .avatar {
+    width: 140px; height: 140px; flex: 0 0 auto;
+    border: 4px ridge var(--neon-pink);
+    background: #000; image-rendering: pixelated;
+  }
+  .hero-info { flex: 1 1 220px; min-width: 200px; }
+  .hero-info h1 { margin: 0 0 4px; color: #000080; font-family: "Times New Roman", serif; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .pill {
+    background: var(--ink); color: var(--neon-cyan);
+    font-size: .75rem; padding: 2px 8px; border-radius: 10px;
+  }
+
+  /* ---- projects grid ---- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #fff; color: #000;
+    border: 3px solid;
+    border-color: var(--panel-light) var(--panel-dark) var(--panel-dark) var(--panel-light);
+    padding: 8px; text-align: left;
+    display: flex; flex-direction: column;
+  }
+  .card img { width: 100%; height: auto; border: 2px solid #000; display: block; }
+  .card h3 { margin: 8px 0 4px; color: #cc0066; font-size: 1.05rem; }
+  .card p { font-size: .85rem; flex: 1 1 auto; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+  .tag { background: var(--ink); color: #fff; font-size: .68rem; padding: 1px 6px; }
+  .card .visit {
+    align-self: flex-start; margin-top: 6px; text-decoration: none;
+    background: var(--neon-lime); color: #000; font-weight: bold;
+    padding: 3px 10px; border: 2px outset var(--neon-lime); font-size: .8rem;
+  }
+
+  /* ---- contact ---- */
+  .contact-list { list-style: none; padding: 0; }
+  .contact-list li { padding: 4px 0; font-size: .95rem; }
+  .contact-list a { color: #0000cc; font-weight: bold; text-decoration: underline; }
+  .contact-list a:visited { color: #660099; }
+  .contact-list a:hover { color: #cc0066; background: var(--neon-yellow); }
+  .email-btn {
+    font-family: inherit; font-weight: bold; cursor: pointer;
+    background: var(--panel); color: #000080;
+    border: 3px solid; border-color: var(--panel-light) var(--panel-dark) var(--panel-dark) var(--panel-light);
+    padding: 6px 14px; font-size: .95rem;
+    text-decoration: none; display: inline-block; margin-top: 8px;
+  }
+
+  /* ---- footer ---- */
+  footer { color: #aaa; font-size: .75rem; margin: 24px 0 40px; }
+
+  /* ---- mobile tweaks ---- */
+  @media (max-width: 480px) {
+    .avatar { margin: 0 auto; }
+    .hero { justify-content: center; text-align: center; }
+    .hero-info { text-align: center; }
+    .badge-row { justify-content: center; }
+    nav a { min-width: 44%; }
+  }
+
+  /* respect users who don't want motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===== TOP BANNER ===== -->
+    <header>
+      <div class="titlebar glow" id="siteTitle">Loading...</div>
+      <div class="subtitle blink" id="siteTagline"></div>
+      <div class="marquee-bar">
+        <marquee scrollamount="6" id="welcomeMarquee">★ Welcome to my homepage! ★</marquee>
+      </div>
+    </header>
+
+    <!-- ===== NAV ===== -->
+    <nav id="nav">
+      <a href="#about">[ About ]</a>
+      <a href="#projects">[ My Stuff ]</a>
+      <a href="#contact">[ E-Mail Me ]</a>
+    </nav>
+
+    <!-- ===== PROFILE / HERO ===== -->
+    <section class="panel" id="about">
+      <h2>~ Welcome to My Corner of the Web ~</h2>
+      <div class="hero">
+        <img class="avatar" id="avatar" alt="my picture">
+        <div class="hero-info">
+          <h1 id="heroName"></h1>
+          <div id="heroTitle"></div>
+          <div class="badge-row" id="heroBadges"></div>
+        </div>
+      </div>
+      <hr class="rainbow-hr">
+      <div id="bio"></div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="panel" id="projects">
+      <h2>★ Some of My Awesome Projects ★</h2>
+      <div class="grid" id="projectGrid"></div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="panel" id="contact">
+      <h2>📧 Get In Touch</h2>
+      <ul class="contact-list" id="contactList"></ul>
+      <a class="email-btn" id="emailBtn" href="#">✉ E-Mail Me Now!</a>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <hr class="rainbow-hr">
+      <div id="copyright"></div>
+    </footer>
+
+  </div>
+
+<script>
+/* ============================================================
+   1) THE DATA
+   ------------------------------------------------------------
+   All content now lives in data/data.json and is loaded at
+   runtime by loadData() (see the bottom of this script). To edit
+   the site's text, images, projects, or contact links, edit that
+   JSON file — nothing in here needs to change.
+   ============================================================ */
+
+
+/* ============================================================
+   2) HELPERS
+   ============================================================ */
+
+// build a fun pixel-y placeholder image as an inline SVG data URI,
+// so previews work with zero network requests. When real image URLs
+// arrive in the JSON, the render functions use those instead.
+function placeholderImage(text, seed) {
+  const palettes = [
+    ["#ff00ff", "#000080"], ["#00ffff", "#660066"], ["#00ff00", "#003300"],
+    ["#ffff00", "#800000"], ["#ff6600", "#003366"], ["#ff3399", "#000000"]
+  ];
+  const [c1, c2] = palettes[Math.abs(seed) % palettes.length];
+  const initials = text.replace(/[^A-Za-z0-9 ]/g, "").split(/\s+/)
+                       .map(w => w[0]).join("").slice(0, 3).toUpperCase();
+  const svg =
+    `<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'>
+       <defs>
+         <pattern id='p' width='20' height='20' patternUnits='userSpaceOnUse'>
+           <rect width='20' height='20' fill='${c2}'/>
+           <rect width='10' height='10' fill='${c1}' opacity='.35'/>
+           <rect x='10' y='10' width='10' height='10' fill='${c1}' opacity='.35'/>
+         </pattern>
+       </defs>
+       <rect width='320' height='200' fill='url(#p)'/>
+       <rect x='8' y='8' width='304' height='184' fill='none' stroke='${c1}' stroke-width='4'/>
+       <text x='160' y='112' font-family='Comic Sans MS, sans-serif' font-size='64'
+             font-weight='bold' fill='${c1}' text-anchor='middle'
+             stroke='#000' stroke-width='2'>${initials || "WWW"}</text>
+     </svg>`;
+  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+}
+
+// avatar placeholder (a little smiley webmaster)
+function placeholderAvatar() {
+  const svg =
+    `<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'>
+       <rect width='140' height='140' fill='#000080'/>
+       <circle cx='70' cy='66' r='42' fill='#ffcc66' stroke='#000' stroke-width='3'/>
+       <circle cx='55' cy='60' r='6' fill='#000'/>
+       <circle cx='85' cy='60' r='6' fill='#000'/>
+       <path d='M48 80 Q70 100 92 80' stroke='#000' stroke-width='4' fill='none'/>
+       <rect x='30' y='18' width='80' height='16' fill='#cc0000'/>
+       <text x='70' y='130' font-family='Comic Sans MS' font-size='16' fill='#00ff00'
+             text-anchor='middle' font-weight='bold'>:o)</text>
+     </svg>`;
+  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+}
+
+function el(tag, props = {}, ...kids) {
+  const node = document.createElement(tag);
+  Object.entries(props).forEach(([k, v]) => {
+    if (k === "class") node.className = v;
+    else if (k === "html") node.innerHTML = v;
+    else if (k.startsWith("on") && typeof v === "function") node.addEventListener(k.slice(2), v);
+    else node.setAttribute(k, v);
+  });
+  kids.flat().forEach(c => node.append(c?.nodeType ? c : document.createTextNode(c ?? "")));
+  return node;
+}
+
+
+/* ============================================================
+   3) RENDER FUNCTIONS  (each takes a slice of the data)
+   ============================================================ */
+
+function renderSite(s) {
+  document.getElementById("siteTitle").textContent = s.title;
+  document.getElementById("siteTagline").innerHTML = s.tagline;
+  document.getElementById("welcomeMarquee").textContent = s.marquee;
+  document.getElementById("copyright").innerHTML = s.copyright;
+}
+
+function renderProfile(p) {
+  document.getElementById("avatar").src = p.avatar || placeholderAvatar();
+  document.getElementById("heroName").innerHTML = p.name + " <small style='color:#666'>(" + p.handle + ")</small>";
+  document.getElementById("heroTitle").innerHTML = p.title;
+  const badges = document.getElementById("heroBadges");
+  badges.replaceChildren(...p.badges.map(b => el("span", { class: "pill" }, b)));
+  const bio = document.getElementById("bio");
+  bio.replaceChildren(...p.bio.map(par => el("p", {}, par)));
+}
+
+function renderProjects(list) {
+  const grid = document.getElementById("projectGrid");
+  grid.replaceChildren(...list.map((proj, i) => {
+    const img = el("img", {
+      src: proj.image || placeholderImage(proj.title, i + proj.title.length),
+      alt: proj.title, loading: "lazy"
+    });
+    const tags = el("div", { class: "tags" },
+      proj.tech.map(t => el("span", { class: "tag" }, t)));
+    return el("div", { class: "card" },
+      img,
+      el("h3", {}, proj.title),
+      el("p", {}, proj.description),
+      tags,
+      el("a", { class: "visit", href: proj.link, target: "_blank", rel: "noopener" }, "Visit »")
+    );
+  }));
+}
+
+function renderContact(c) {
+  const ul = document.getElementById("contactList");
+  ul.replaceChildren(...c.items.map(it => {
+    const label = el("b", {}, it.label + ": ");
+    if (!it.href) return el("li", {}, label, it.value);
+    // mailto links open in the mail client; web links open in a new tab
+    const isWeb = /^https?:/i.test(it.href);
+    const link = el("a", isWeb
+      ? { href: it.href, target: "_blank", rel: "noopener" }
+      : { href: it.href }, it.value);
+    return el("li", {}, label, link);
+  }));
+  document.getElementById("emailBtn").href = "mailto:" + c.email;
+}
+
+/* ============================================================
+   4) BOOTSTRAP
+   ============================================================ */
+
+function render(data) {
+  document.title = data.profile.handle + " :: " + data.site.title;
+  renderSite(data.site);
+  renderProfile(data.profile);
+  renderProjects(data.projects);
+  renderContact(data.contact);
+}
+
+/* Keep same-page links in-frame. Anchor links (#about, #projects, ...) and
+   placeholder "#" links are handled here so the (sandboxed) preview never
+   tries to open them as a new top-level page. Real http(s) links are left
+   alone and behave normally. */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a");
+  if (!a) return;
+  const href = a.getAttribute("href") || "";
+  if (!href.startsWith("#")) return;     // real URL -> let it through
+  e.preventDefault();
+  if (href.length > 1) {                 // "#section" -> smooth scroll to it
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  // bare "#" placeholders do nothing for now
+});
+
+/* Loads the site content from data/data.json. This is the only
+   place that knows where the data comes from — the render functions
+   above don't care. */
+async function loadData() {
+  const res = await fetch("data/data.json");
+  if (!res.ok) throw new Error("Could not load data/data.json (" + res.status + ")");
+  return res.json();
+}
+
+loadData()
+  .then(render)
+  .catch(err => {
+    console.error(err);
+    document.getElementById("siteTitle").textContent = "Oops! 404-ish";
+    document.getElementById("siteTagline").textContent = "Couldn't load the page data: " + err.message;
+  });
+</script>
+</body>
+</html>
