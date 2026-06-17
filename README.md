@@ -19,6 +19,10 @@ any code.
   project thumbnails generated on the fly (no image hosting required).
 - **Accessible motion** — animations are disabled for visitors who prefer reduced motion.
 
+## Screenshot
+
+![retrocities screenshot](screenshot.png)
+
 ## Project structure
 
 ```
@@ -26,6 +30,8 @@ any code.
 ├── index.html        # markup, styles, and all rendering logic
 ├── data/
 │   └── data.json     # all site content (edit this to update the page)
+├── images/
+│   └── profile.jpg   # profile image
 └── README.md
 ```
 
