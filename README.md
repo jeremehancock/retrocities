@@ -21,7 +21,7 @@ any code.
 
 ## Screenshot
 
-![retrocities screenshot](screenshot.png)
+![retrocities screenshot](screenshot-updated.png)
 
 ## Project structure
 
