@@ -76,7 +76,7 @@
       { "label": "Website",      "value": "jeremehancock.com",         "href": "https://jeremehancock.com" },
       { "label": "GitHub",       "value": "@jeremehancock",            "href": "https://github.com/jeremehancock" },
       { "label": "DumbProjects", "value": "dumbprojects.com",          "href": "https://dumbprojects.com" },
-      { "label": "Blog",         "value": "https://jereme.dev",        "href": "https://jereme.dev" }
+      { "label": "Blog",         "value": "jereme.dev",        "href": "https://jereme.dev" }
     ]
   }
 }
