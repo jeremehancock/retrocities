@@ -287,9 +287,10 @@
    2) HELPERS
    ============================================================ */
 
-// build a fun pixel-y placeholder image as an inline SVG data URI,
-// so previews work with zero network requests. When real image URLs
-// arrive in the JSON, the render functions use those instead.
+// build a retro placeholder thumbnail as an inline SVG data URI, so previews
+// work with zero network requests. When real image URLs arrive in the JSON,
+// the render functions use those instead. Uses solid shapes (no tiled pattern)
+// so it scales cleanly on high-DPI / mobile screens without seam artifacts.
 function placeholderImage(text, seed) {
   const palettes = [
     ["#ff00ff", "#000080"], ["#00ffff", "#660066"], ["#00ff00", "#003300"],
@@ -299,21 +300,15 @@ function placeholderImage(text, seed) {
   const initials = text.replace(/[^A-Za-z0-9 ]/g, "").split(/\s+/)
                        .map(w => w[0]).join("").slice(0, 3).toUpperCase();
   const svg =
-    `<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'>
-       <defs>
-         <pattern id='p' width='20' height='20' patternUnits='userSpaceOnUse'>
-           <rect width='20' height='20' fill='${c2}'/>
-           <rect width='10' height='10' fill='${c1}' opacity='.35'/>
-           <rect x='10' y='10' width='10' height='10' fill='${c1}' opacity='.35'/>
-         </pattern>
-       </defs>
-       <rect width='320' height='200' fill='url(#p)'/>
-       <rect x='8' y='8' width='304' height='184' fill='none' stroke='${c1}' stroke-width='4'/>
-       <text x='160' y='112' font-family='Comic Sans MS, sans-serif' font-size='64'
-             font-weight='bold' fill='${c1}' text-anchor='middle'
-             stroke='#000' stroke-width='2'>${initials || "WWW"}</text>
-     </svg>`;
-  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200'>" +
+      "<rect width='320' height='200' fill='" + c2 + "'/>" +
+      "<rect x='30' y='30' width='260' height='140' fill='" + c1 + "' opacity='0.16'/>" +
+      "<rect x='10' y='10' width='300' height='180' fill='none' stroke='" + c1 + "' stroke-width='6'/>" +
+      "<text x='160' y='130' font-family='Arial, sans-serif' font-size='84' " +
+        "font-weight='bold' fill='" + c1 + "' text-anchor='middle' " +
+        "stroke='#000' stroke-width='3' paint-order='stroke'>" + (initials || "WWW") + "</text>" +
+    "</svg>";
+  return "data:image/svg+xml," + encodeURIComponent(svg);
 }
 
 // avatar placeholder (a little smiley webmaster)
@@ -329,7 +324,7 @@ function placeholderAvatar() {
        <text x='70' y='130' font-family='Comic Sans MS' font-size='16' fill='#00ff00'
              text-anchor='middle' font-weight='bold'>:o)</text>
      </svg>`;
-  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+  return "data:image/svg+xml," + encodeURIComponent(svg);
 }
 
 function el(tag, props = {}, ...kids) {
