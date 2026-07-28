@@ -20,11 +20,11 @@
 
   "projects": [
     {
-      "title": "Posteria",
+      "title": "marquee",
       "year": 2024,
       "description": "A self-hosted Plex media poster management app for organizing and customizing the artwork across your library. My most-starred project!",
       "tech": ["PHP", "Self-Hosted", "Plex"],
-      "link": "https://github.com/jeremehancock/Posteria",
+      "link": "https://marquee.dumbprojects.com",
       "image": ""
     },
     {
@@ -64,7 +64,7 @@
       "year": 2023,
       "description": "Exactly what it sounds like: a website that serves up random goat GIFs. Because the web needed more goats.",
       "tech": ["PHP", "GIFs", "Goats"],
-      "link": "https://github.com/jeremehancock/RandomGoat.com",
+      "link": "https://randomgoat.com",
       "image": ""
     }
   ],
