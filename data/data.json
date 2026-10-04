@@ -20,7 +20,7 @@
 
   "projects": [
     {
-      "title": "marquee",
+      "title": "Marquee",
       "year": 2024,
       "description": "A self-hosted Plex media poster management app for organizing and customizing the artwork across your library. My most-starred project!",
       "tech": ["PHP", "Self-Hosted", "Plex"],
@@ -52,11 +52,11 @@
       "image": ""
     },
     {
-      "title": "whoami-web",
-      "year": 2024,
-      "description": "A résumé that runs like a terminal — type commands to learn about me. A nerdier take on the classic CV.",
-      "tech": ["JavaScript", "Terminal UI"],
-      "link": "https://github.com/jeremehancock/whoami-web",
+      "title": "Cinemetric",
+      "year": 2026,
+      "description": "Claude skills for your Plex server. Ask for library reports, server health checks, watch stats, and a full dashboard — all read-only, so nothing gets changed.",
+      "tech": ["Python", "Claude", "Plex"],
+      "link": "https://cinemetric.dev",
       "image": ""
     },
     {
